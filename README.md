@@ -41,10 +41,15 @@ plot(xpandClass)</pre></code>
 <h2>Further analysis</h2>
 <p>One can make use of the package <a href="https://github.com/jgregoriods/spDates">spDates</a> to perform space-time regressions on the South American dates following the methods commonly employed, for instance, for the European Neolithic:</p>
 <pre><code>library(spDates)
-sb <- xpandClass[[1]][xpandClass[[1]]$Class=="SB",] #Subsetting the Saladoid-Barrancoid dates
+#Create a subset with Saladoid-Barrancoid dates
+sb <- xpandClass[[1]][xpandClass[[1]]$Class=="SB",]
+#Prepare the data as per spDates instructions
+#Retain only earliest dates, calibrate and get median
+sb <- filterDates(sb, "C14Age")
 sb$cal <- calibrate(sb$C14Age, sb$C14SD, calCurves="shcal13")
 sb$med <- medCal(sb$cal)
-laGruta <- sb[sb$Site=="La Gruta",][1,] #La Gruta is the earliest site
-rma <- modelDates(sb, "C14Age", laGruta)
+laGruta <- sb[sb$Site=="La Gruta",] #La Gruta is the earliest site
+rma <- modelDates(sb, "C14Age", laGruta, binWidth=250)  #Using 250km spatial bins and reduced major axis
+plot(rma)
 </pre></code>
 <p>Notice that this example is for illustrative purposes. When creating the cal and med columns, one should take into account, among other things, different calibration curves - e.g. when dates are from marine shell.</p>
