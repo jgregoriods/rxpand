@@ -4,3 +4,5 @@
 <h3>Installation</h3>
 <p>To install from the github repository:</p>
 <pre><code>devtools::install_github("jgregoriods/xpandR")</pre></code>
+<h3>Data</h3>
+<p>The data are stored in the object <i>xpand</i>, a SpatialPointsDataFrame.</p>
