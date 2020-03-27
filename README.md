@@ -44,4 +44,7 @@ plot(xpandClass)</pre></code>
 sb <- xpandClass[[1]][xpandClass[[1]]$Class=="SB",] #Subsetting the Saladoid-Barrancoid dates
 sb$cal <- calibrate(sb$C14Age, sb$C14SD, calCurves="shcal13")
 sb$med <- medCal(sb$cal)
+laGruta <- sb[sb$Site=="La Gruta",][1,] #La Gruta is the earliest site
+rma <- modelDates(sb, "C14Age", laGruta)
 </pre></code>
+<p>Notice that this example is for illustrative purposes. When creating the cal and med columns, one should take into account, among other things, different calibration curves - e.g. when dates are from marine shell.</p>
