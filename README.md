@@ -32,6 +32,6 @@ plot(xpand, add=TRUE, cex=0.5, col="red")</pre></code>
 <p>The package comes with some in-built methods for simple visualization of the classified data. They allow one to do a first exploration of trends in the radiocarbon dates. To visualize the distribution of archaeological cultures, one can select all sites and the broad classification scheme, or a single taxonomic unit in order to show its cultural components.</p>
 <pre><code>data(xpandClass)
 plot(xpandClass)</pre></code>
-<img src="img/all.png" width=200></img>
+<img src="img/all.png" height=300></img>
 <pre><code>plot(xpandClass, "SB")  #Saladoid-Barrancoid subset</pre></code>
-<img src="img/sb.png" width=200></img>
+<img src="img/sb.png" height=300></img>
