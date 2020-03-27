@@ -37,3 +37,4 @@ plot(xpandClass)</pre></code>
 <img src="img/sb.png" height=300></img>
 <p>To explore spatial trends in the distribution of radiocarbon dates, there is the option of plotting an isochrone map - based on inverse distance weighting and considering only the earliest dates in a radius of 100 km.</p>
 <pre><code>plot(xpandClass, "SB", isochrones=TRUE)</pre></code>
+<img src="img/iso.png" height=300></img>
