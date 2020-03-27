@@ -40,4 +40,8 @@ plot(xpandClass)</pre></code>
 <img src="img/iso.png" height=350></img>
 <h2>Further analysis</h2>
 <p>One can make use of the package <a href="https://github.com/jgregoriods/spDates">spDates</a> to perform space-time regressions on the South American dates following the methods commonly employed, for instance, for the European Neolithic:</p>
-<pre><code>library(spDates)</pre></code>
+<pre><code>library(spDates)
+sb <- xpandClass[[1]][xpandClass[[1]]$Class=="SB",] #Subsetting the Saladoid-Barrancoid dates
+sb$cal <- calibrate(sb$C14Age, sb$C14SD, calCurves="shcal13")
+sb$med <- medCal(sb$cal)
+</pre></code>
