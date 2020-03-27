@@ -52,4 +52,5 @@ laGruta <- sb[sb$Site=="La Gruta",] #La Gruta is the earliest site
 rma <- modelDates(sb, "C14Age", laGruta, binWidth=500)  #Using 500 km bins and reduced major axis
 plot(rma)
 </pre></code>
+<img src="img/sbrma.png" height=300></img>
 <p>Notice that this example is for illustrative purposes. When creating the cal and med columns, one should take into account, among other things, different calibration curves - e.g. when dates are from marine shell.</p>
