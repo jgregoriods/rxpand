@@ -25,3 +25,13 @@
 data(sam) #South American country borders
 plot(sam)
 plot(xpand, add=TRUE, cex=0.5, col="red")</pre></code>
+<img src="img/plotsites.png" width=200></img>
+<h2>Archaeological cultures and chronology</h2>
+<p>A second dataset, <i>xpandClass</i>, is classified according to a broad taxonomic scheme devised to simplify the myriad of archaeological cultures in late Holocene tropical South America. The following codes are employed:</p>
+
+<p>The package comes with some in-built methods for simple visualization of the classified data. They allow one to do a first exploration of trends in the radiocarbon dates. To visualize the distribution of archaeological cultures, one can select all sites and the broad classification scheme, or a single taxonomic unit in order to show its cultural components.</p>
+<pre><code>data(xpandClass)
+plot(xpandClass)</pre></code>
+<img src="img/all.png" width=200></img>
+<pre><code>plot(xpandClass, "SB")  #Saladoid-Barrancoid subset</pre></code>
+<img src="img/sb.png" width=200></img>
