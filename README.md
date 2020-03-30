@@ -30,7 +30,7 @@ plot(xpand, add=TRUE, cex=0.5, col="red")</pre></code>
 <img src="img/santarem.png" width=250 align="right"></img>
 <p>A second dataset, <i>xpandClass</i>, is classified according to a broad taxonomic scheme devised to simplify the myriad of archaeological cultures in late Holocene tropical South America. The following codes are employed:</p>
 <ul>
-  <li><b>BB:</b> Bacabal phase and related ceramics</li>  
+  <li><b>BB:</b> Bacabal phase, associated with early shell mounds in southwestern Amazon, and similar ceramics in the same region, such as Pimenteira and Jasiaquiri, which are associated with ditched enclosures (Miller 1983; Zimpel and Pugliese 2012; Prümers and Jaimes Betancourt 2014).</li>  
 </ul>
 <p>The package comes with some in-built methods for simple visualization of the classified data. They allow one to do a first exploration of trends in the radiocarbon dates. To visualize the distribution of archaeological cultures, one can select all sites and the broad classification scheme, or a single taxonomic unit in order to show its cultural components.</p>
 <pre><code>data(xpandClass)
