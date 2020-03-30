@@ -27,8 +27,8 @@ plot(sam)
 plot(xpand, add=TRUE, cex=0.5, col="red")</pre></code>
 <img src="img/plotsites.png" width=200></img>
 <h2>Archaeological cultures and chronology</h2>
+<img src="img/santarem.png" width=250 align="right"></img>
 <p>A second dataset, <i>xpandClass</i>, is classified according to a broad taxonomic scheme devised to simplify the myriad of archaeological cultures in late Holocene tropical South America. The following codes are employed:</p>
-<img src="img/santarem.png" width=100 align="right"></img>
 <ul>
   <li><b>BB:</b> Bacabal phase and related ceramics</li>  
 </ul>
