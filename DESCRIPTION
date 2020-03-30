@@ -1,13 +1,20 @@
 Package: xpandR
-Title: What the Package Does (One Line, Title Case)
+Title: Archaeological radiocarbon dates for the expansion of ceramics and
+    farming in lowland South America.
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Jonas",
+           family = "Gregorio de Souza",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: What license it uses
+           email = "jonas.gregorio@gmail.com",
+           comment = c(ORCID = "0000-0001-6032-4443"))
+Description: Dataset of radiocarbon dates from project ExPaND, containing 2794
+    radiocarbon dates from 1035 archaeological sites. Besides the data, the
+    package comes with methods for visualization and preliminary analysis of the
+    spatial patterns in dates of different cultures, such as plotting isochrone
+    surfaces interpolated from the radiocarbon measurements.
+Depends: R (>= 3.5.0), dplyr, gstat, pals, raster, rgdal, viridisLite
+License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 7.0.2

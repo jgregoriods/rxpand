@@ -2,7 +2,6 @@ library(dplyr)
 library(gstat)
 library(pals)
 library(raster)
-library(RColorBrewer)
 library(rgdal)
 library(viridisLite)
 
@@ -37,7 +36,15 @@ filterDates <- function(sites, c14bp, dist = 0) {
     return(sites.max.spdf)
 }
 
-interpolateIDW <- function(sites, dates) {
+
+#' Interpolate radiocarbon dates using inverse distance weighting.
+#' @param sites A SpatialPointsDataFrame object with archaeological sites and
+#' associated radiocarbon ages.
+#' @param c14bp A string. Name of the field with the radiocarbon ages in C14 BP
+#' format.
+#' @return A RasterLayer with interpolated C14 ages.
+#' @export
+interpolateIDW <- function(sites, c14bp) {
     grd <- as.data.frame(spsample(sites, "regular", n = 50000))
     names(grd) <- c("x", "y")
     coordinates(grd) <- ~x+y
@@ -45,13 +52,28 @@ interpolateIDW <- function(sites, dates) {
     gridded(grd) <- TRUE
     fullgrid(grd) <- TRUE
 
-    sites.idw <- idw(get(dates) ~ 1, sites, newdata = grd, idp = 2.0)
+    sites.idw <- idw(get(c14bp) ~ 1, sites, newdata = grd, idp = 2.0)
     return(raster(sites.idw))
 }
 
-plot.xpanDates <- function(sites, culture = "all", isochrones = FALSE) {
 
+#' S3 method for plotting classified archaeological sites and dates of ExPaND
+#' project. It is possible to plot only the sites according to their cultural
+#' affiliation or an interpolated surface with the radiocarbon ages.
+#' @param sites An xpanDates object.
+#' @param culture A string. The archaeological culture to be plotted. One of
+#' "all", "BB" (Bacabal and related), "CC" (Cumancaya and related), "GM"
+#' (Goya-Malabrigo), "HZ" (Zone-Hachured), "IP" (Incised-Punctate and related),
+#' "NI" (Unclassified), "PC" (Pedra do Caboclo/Aratu), "PL" (Amazon Polychrome),
+#' "SB" (Saladoid-Barrancoid and related), "TP" (Tupiguarani), "TT"
+#' (Tutishcainyo and related) or "UN" (Una/Taquara/Itararé). Default is "all".
+#' @param isochrones A boolean indicating whether to plot an interpolated
+#' surface of radiocarbon ages. Default is FALSE.
+#' @return An spplot.
+#' @export
+plot.xpanDates <- function(sites, culture = "all", isochrones = FALSE) {
     sites <- sites[[1]][sites[[1]]$Exclude == FALSE,]
+
     keys <- list(all = "All sites", BB = "Bacabal and related",
                  CC = "Cumancaya and related", GM = "Goya-Malabrigo",
                  HZ = "Zone-Hachured", IP = "Incised-Punctate and related",
@@ -64,10 +86,10 @@ plot.xpanDates <- function(sites, culture = "all", isochrones = FALSE) {
         attr <- "Class"
     } else {
         sites <- sites[sites$Class == culture,]
+        # Get rid of parentheses with cultural subdivisions, keep only the
+        # broader classification.
         sites$Culture <- gsub(" \\(.+", "", sites$Culture)
         sites$Culture <- factor(sites$Culture)
-        #col <- brewer.pal(n = length(unique(sites$Culture)), "YlOrRd")
-        #col <- viridis(length(unique(sites$Culture)))
         attr <- "Culture"
     }
 
@@ -80,17 +102,18 @@ plot.xpanDates <- function(sites, culture = "all", isochrones = FALSE) {
                       colorkey = list(width = 1, space = "bottom"),
                       xlab = list("C14 BP", cex = 0.75),
                       par.settings = list(axis.line = list(col = "transparent"),
-                                          layout.heights=list(xlab.key.padding=1)),
+                                          layout.heights = list(xlab.key.padding = 1)),
                       main = list(label = keys[culture], cex = 1))
     } else {
         borders <- list("sp.polygons", sam)
-        plt <- spplot(sites, attr, xlim=c(-82, -34), ylim=c(-56, 13),
-                    col.regions = kelly()[4:22], cex = 0.5, sp.layout = borders,
-                    par.settings = list(axis.line = list(col = "transparent")),
-                    main = list(label = keys[culture], cex = 1))
+        plt <- spplot(sites, attr, xlim = c(-82, -34), ylim = c(-56, 13),
+                      col.regions = kelly()[4:22], cex = 0.5, sp.layout = borders,
+                      par.settings = list(axis.line = list(col = "transparent")),
+                      main = list(label = keys[culture], cex = 1))
         names(plt$legend) <- "right"
     }
-    plot(plt)
+
+    return(plt)
 }
 
 #' South American country borders from NaturalEarth.
