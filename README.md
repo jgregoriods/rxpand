@@ -45,7 +45,10 @@ plot(xpand, add=TRUE, cex=0.5, col="red")</pre></code>
   <li><b>BB:</b> Bacabal phase, associated with early shell mounds in southwestern Amazon, and similar ceramics in the same region, such as Pimenteira and Jasiaquiri, which are associated with ditched enclosures (Miller 1983; Zimpel and Pugliese 2012; Prümers and Jaimes Betancourt 2014).</li>
   <li><b>CC:</b> Cumancaya and other corrugated ceramic phases of western Amazon, such as Huapula, which is associated with large platform mound complexes in Ecuador (Raymond et al. 1975; Rostain 1999).</li>
   <li><b>GM:</b> Goya-Malabrigo (aka Ribereños Plásticos) mound sites in the Paraná wetlands (<a href="https://doi.org/10.22562/2016.45.06">Loponte and Acosta 2016</a>).</li>
-  <li><b>HZ:</b> Hachure-Zoned ceramics and other early complexes with similar decoration, such as Mina, mostly associated with shell mounds in eastern Amazon (Bandeira 2012; <a href="https://doi.org/10.1126/science.254.5038.1621">Roosevelt et al. 1991</a>; <a href="https://repositorio.museu-goeldi.br/handle/mgoeldi/223">Simões 1981</a>).</li>
+  <li><b>HZ:</b> Zone-Hachured ceramics and other early complexes with similar decoration, such as Mina, mostly associated with shell mounds in eastern Amazon (Bandeira 2012; <a href="https://doi.org/10.1126/science.254.5038.1621">Roosevelt et al. 1991</a>; <a href="https://repositorio.museu-goeldi.br/handle/mgoeldi/223">Simões 1981</a>).</li>
+  <li><b>IP:</b> Ceramic phases attributed to the Incised-Punctate tradition, such as Santarém and Konduri, which appear in <i>terra preta</i> sites in the lower Amazon, together with Arauquinoid ceramics from the Orinoco and Guyanas, where they are associated with mounds and raised fields (Gomes 2001; Guapindaia 2008; Rostain 2008). Koriabo ceramics are provisionally included in this group, but recent criticism of that affiliation may lead to its exclusion (Boomert 2004).</li>
+  <li><b>NI: </b> Unclassified.</li>
+  <li><b>PC: </b> Pedra do Caboclo and other early, simple ceramics from the Brazilian northeast, including unclassified ceramics from many rockshelters (Laroche 1970; Vergne 2004; Arnaldo 2012), together with the Aratu tradition of the <i>cerrado</i> ring villages, included here due to its similarities with the former (Calderón 1969; Dias Jr. 1975). This affiliation may be reviewed in the future.</li>
 </ul>
 
 <p>The package comes with some in-built methods for simple visualization of the classified data. They allow one to do a first exploration of trends in the radiocarbon dates. To visualize the distribution of archaeological cultures, one can select all sites and the broad classification scheme, or a single taxonomic unit in order to show its cultural components.</p>
@@ -85,12 +88,21 @@ plot(rma)
 <p>Notice that this example is for illustrative purposes. When creating the cal and med columns, one should take into account, among other things, different calibration curves - e.g. when dates are from marine shell.</p>
 
 <h3>References</h3>
+<p>Arnaldo, Emilia M A. 2012. “Uso e Ocupação Dos Espaços Pelos Grupos Ceramistas Da Serra Branca - Sudeste Do Piauí.” Recife: Universidade Federal de Pernambuco.</p>
 <p>Bandeira, Arkley Marques. 2012. “A Cerâmica Mina No Maranhão.” In Cerâmicas Arqueológicas Da Amazônia: Rumo a Uma Nova Síntese, edited by Cristiana Barreto, Helena P Lima, and Carla J Betancourt, 151–61. Belém: IPHAN.</p>
+<p>Boomert, A. 2004. “Koriabo and the Polychrome Tradition: The Late-Prehistoric Era between the Orinoco and Amazon Mouths.” In Late Ceramic Age Societies in the Eastern Caribbean, edited by A Delpuech and C L Hofman, 251–66. Oxford: ArchaeoPress.</p>
+<p>Calderón, Valentin. 1969. “A Fase Aratu No Recôncavo e Litoral Norte Do Estado Da Bahia.” In Programa Nacional de Pesquisas Arqueológicas: Resultados Preliminares Do Terceiro Ano, edited by PRONAPA, 161–68. Belém: Museu Paraense Emílio Goeldi.</p>
+<p>Dias Jr., Ondemar. 1975. “Pesquisas Arqueológicas No Sudeste Brasileiro.” Boletim Do Instituto de Arqueologia Brasileira Série Espe (1).</p>
+<p>Gomes, Denise C. 2001. “Santarém: Symbolism and Power in the Tropical Forest.” In Unknown Amazon, edited by C McEwam, C Barreto, and E Neves, 134–55. London: The British Museum Press.</p>
+<p>Guapindaia, Vera. 2008. “Além Da Margem Do Rio - a Ocupação Konduri e Pocó Na Região de Porto Trombetas, PA.” São Paulo: University of São Paulo.</p>
+<p>Laroche, Armand François Gaston. 1970. O Sítio Arqueológico Da Pedra Do Caboclo: Relato de Uma Pesquisa Na Zona Do Agreste Pernambucano. Recife: Secretaria de Educação e Cultura.</p>
 <p>Loponte, Daniel, and Alejandro Acosta. 2016. <a href="https://doi.org/10.22562/2016.45.06">“Los Contextos Goya-Malabrigo Del Noreste Argentino.”</a> Cadernos Do CEOM 29 (45): 125–87.</p>
 <p>Miller, Eurico T. 1983. “História Da Cultura Indígena Do Alto Médio Guaporé (Rondônia e Mato Grosso).” Pontifícia Universidade Católica do Rio Grande do Sul.</p>
 <p>Prümers, H, and C Jaimes Betancourt. 2014. “100 Años de Investigación Arqueológica En Los Llanos de Mojos.” Arqueoantropológicas 4 (4): 11–54.</p>
 <p>Raymond, J Scott, Warren R DeBoer, and Peter G Roe. 1975. Cumancaya: A Peruvian Ceramic Tradition. Calgary: University of Calgary.</p>
 <p>Roosevelt, Anna Curtenius, R. A. Housley, Maura Imazio da Silveira, Silvia Maranca, and R. Johnson. 1991. <a href="https://doi.org/10.1126/science.254.5038.1621">“Eighth Millennium Pottery from a Prehistoric Shell Midden in the Brazilian Amazon.”</a> Science 254 (5038): 1621–24.</p>
 <p>Rostain, Stéphen. 1999. “Secuencia Arqueológica En Montículos Del Valle Del Upano En La Amazonía Ecuatoriana.” Bulletin de L´Institut Français D´Etudes Andines 28 (1): 1–37.</p>
+<p>Rostain, Stéphen. 2008. “The Archaeology of the Guianas: An Overview.” In Handbook of South American Archaeology, edited by H Silverman and W H Isbell, 279–302. New York: Springer.</p>
 <p>Simões, Mário F. 1981. <a href="https://repositorio.museu-goeldi.br/handle/mgoeldi/223">“Coletores-Pescadores Ceramistas Do Litoral Do Salgado (Pará): Nota Preliminar.”</a> Boletim Do Museu Paraense Emílio Goeldi 78: 1–26.</p>
+<p>Vergne, Cleonice. 2004. “Arqueologia Do Baixo São Francisco: Estruturas Funerárias Do Sítio Justino - Região Do Xingó, Canindé Do São Francisco, Segipe.” Universidade de São Paulo.</p>
 <p>Zimpel, Carlos Augusto, and Francisco A. Pugliese Jr. 2012. “A Fase Bacabal e Suas Implicações Para a Interpretação Do Registro Arqueológico No Médio Rio Guaporé, Rondônia.” In Cerâmicas Arqueológicas Da Amazônia: Rumo a Uma Nova Síntese, edited by Cristiana Barreto, Helena P Lima, and Carla Jaimes Betancourt, 435–50. Brasília: IPHAN/Ministério da Cultura.</p>
