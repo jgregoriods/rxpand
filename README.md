@@ -28,7 +28,10 @@ plot(xpand, add=TRUE, cex=0.5, col="red")</pre></code>
 <img src="img/plotsites.png" width=200></img>
 <h2>Archaeological cultures and chronology</h2>
 <p>A second dataset, <i>xpandClass</i>, is classified according to a broad taxonomic scheme devised to simplify the myriad of archaeological cultures in late Holocene tropical South America. The following codes are employed:</p>
-
+<img src="img/santarem.png" width=100 align="right"></img>
+<ul>
+  <li><b>BB:</b> Bacabal phase and related ceramics</li>  
+</ul>
 <p>The package comes with some in-built methods for simple visualization of the classified data. They allow one to do a first exploration of trends in the radiocarbon dates. To visualize the distribution of archaeological cultures, one can select all sites and the broad classification scheme, or a single taxonomic unit in order to show its cultural components.</p>
 <pre><code>data(xpandClass)
 plot(xpandClass)</pre></code>
@@ -39,7 +42,7 @@ plot(xpandClass)</pre></code>
 <pre><code>plot(xpandClass, "SB", isochrones=TRUE)</pre></code>
 <img src="img/iso.png" height=350></img>
 <h2>Further analysis</h2>
-<p>One can make use of the package <a href="https://github.com/jgregoriods/spDates">spDates</a> to perform space-time regressions on the South American dates following the methods commonly employed, for instance, for the European Neolithic:</p>
+<p>One can use the package <a href="https://github.com/jgregoriods/spDates">spDates</a> to perform space-time regressions on the South American dates following the methods commonly employed, for instance, for the European Neolithic:</p>
 <pre><code>library(spDates)
 #Create a subset with Saladoid-Barrancoid dates and remove problematic dates
 sb <- xpandClass[[1]][xpandClass[[1]]$Class=="SB" & xpandClass[[1]]$Exclude=="FALSE",]
