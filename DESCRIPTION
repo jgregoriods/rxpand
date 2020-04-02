@@ -8,8 +8,8 @@ Authors@R:
            role = c("aut", "cre"),
            email = "jonas.gregorio@gmail.com",
            comment = c(ORCID = "0000-0001-6032-4443"))
-Description: Dataset of radiocarbon dates from project ExPaND, containing 2794
-    radiocarbon dates from 1035 archaeological sites. Besides the data, the
+Description: Dataset of radiocarbon dates from project ExPaND, containing 2762
+    radiocarbon dates from 1023 archaeological sites. Besides the data, the
     package comes with methods for visualization and preliminary analysis of the
     spatial patterns in dates of different cultures, such as plotting isochrone
     surfaces interpolated from the radiocarbon measurements.

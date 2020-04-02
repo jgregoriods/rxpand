@@ -43,7 +43,6 @@ filterDates <- function(sites, c14bp, dist = 0) {
 #' @param c14bp A string. Name of the field with the radiocarbon ages in C14 BP
 #' format.
 #' @return A RasterLayer with interpolated C14 ages.
-#' @export
 interpolateIDW <- function(sites, c14bp) {
     grd <- as.data.frame(spsample(sites, "regular", n = 50000))
     names(grd) <- c("x", "y")
@@ -121,11 +120,11 @@ plot.xpanDates <- function(sites, culture = "all", isochrones = FALSE) {
 #' @format A SpatialPolygonsDataFrame.
 "sam"
 
-#' Radiocarbon dates and coordinates of 1035 archaeological sites in lowland
+#' Radiocarbon dates and coordinates of 1023 archaeological sites in lowland
 #' South America associated with the spread of ceramics and tropical forest
 #' farming.
 #' 
-#' @format A SpatialPointsDataFrame with 2794 features and 11 variables.
+#' @format A SpatialPointsDataFrame with 2762 features and 11 variables.
 #' \itemize{
 #'   \item Site. Site name.
 #'   \item C14Age. Date in C14 years BP.
