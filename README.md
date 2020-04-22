@@ -59,6 +59,8 @@ plot(xpand, add=TRUE, cex=0.5, col="red")</pre></code>
 names(plt$legend) <- "right"
 plt</pre></code>
 
+<img src="img/cultures.jpg" width=200></img>
+
 <p>To explore spatial trends in the distribution of radiocarbon dates, there is the option of plotting an isochrone map - based on inverse distance weighting and considering only the earliest dates in a radius of 100 km.</p>
 <pre><code>plot(xpandClass, "SB", isochrones=TRUE)</pre></code>
 
