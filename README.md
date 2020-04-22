@@ -59,19 +59,19 @@ plot(xpand, add=TRUE, cex=0.5, col="red")</pre></code>
 names(plt$legend) <- "right"
 plt</pre></code>
 
-<img src="img/cultures.jpg" width=200></img>
+<img src="img/cultures.jpg" height=320></img>
 
-<p>To explore spatial trends in the distribution of radiocarbon dates, there is the option of plotting an isochrone map - based on inverse distance weighting and considering only the earliest dates in a radius of 100 km.</p>
-<pre><code>plot(xpandClass, "SB", isochrones=TRUE)</pre></code>
+<p>The code includes a function to quickly plot an isochrone map - based on inverse distance weighting and considering only the earliest dates in a radius of 100 km.</p>
+<pre><code># Saladoid-Barrancoid subset
+sb <- xpand[xpand$Class=="SB" & xpand$Exclude==FALSE,]
+isoPlot(xpand, "C14Age", title="Saladoid-Barrancoid")</pre></code>
 
-<img src="img/iso.png" height=350></img>
+<img src="img/sbiso.jpg" height=350></img>
 
 <h2>Further analysis</h2>
 
 <p>One can use the package <a href="https://github.com/jgregoriods/spDates">spDates</a> to perform space-time regressions on the South American dates following the methods commonly employed, for instance, for the European Neolithic:</p>
 <pre><code>library(spDates)
-#Create a subset with Saladoid-Barrancoid dates and remove problematic dates
-sb <- xpandClass[[1]][xpandClass[[1]]$Class=="SB" & xpandClass[[1]]$Exclude=="FALSE",]
 #Prepare the data as per spDates instructions
 #Retain only earliest dates, calibrate and get median
 sb <- filterDates(sb, "C14Age")
