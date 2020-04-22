@@ -5,11 +5,6 @@
 
 <p>This package contains a dataset with 2762 radiocarbon dates from 1023 archaeological sites in lowland South America. In principle, only archaeological cultures related to the spread of polyculture agroforestry (tropical forest farming) and ceramics are represented. The dataset has been compiled and is continuously updated as part of the project <a href="https://amazonexpand.wixsite.com/expand">ExPaND: Examining Pan-Neotropical Diasporas</a> funded by the European Commission H2020.</p>
 
-<h3>Installation</h3>
-
-<p>To install from the github repository:</p>
-<pre><code>devtools::install_github("jgregoriods/xpandR")</pre></code>
-
 <h3>Data</h3>
 
 <p>The data are stored in the object <i>xpand</i>, a SpatialPointsDataFrame. Variables are the following:</p>
@@ -26,11 +21,12 @@
   <li><b>Reference:</b> Reference for the date in author-year format.</li>
   <li><b>FullReference</b> Full bibliographic reference.</li>
   <li><b>Exclude:</b> A boolean deciding whether the date should be excluded from analyses based on the best judgement of the original publisher or general consensus of the archaeological community in the present.</li>
+  <li><b>Class:</b> A simple and broad classification of the various archaeological cultures (see below).</li>
 </ul>
 
 <p>The data are made available in SpatialPoints* format to facilitate spatial analyses in R.</p>
-<pre><code>data(xpand)
-data(sam) #South American country borders
+<pre><code>load("data/xpand.RDa")
+load("data/sam.RDa") #South American country borders
 plot(sam)
 plot(xpand, add=TRUE, cex=0.5, col="red")</pre></code>
 <img src="img/plotsites.png" width=200></img>
@@ -39,7 +35,7 @@ plot(xpand, add=TRUE, cex=0.5, col="red")</pre></code>
 
 <img src="img/tutish.png" width=250 align="right"></img>
 
-<p>A second dataset, <i>xpandClass</i>, is classified according to a broad taxonomic scheme devised to simplify the myriad of archaeological cultures in late Holocene tropical South America. The following codes are employed:</p>
+<p>In the attribute <i>Class</i>, an experimental classification is provided according to a broad taxonomic scheme devised to simplify the myriad of archaeological cultures in late Holocene tropical South America. The following codes are employed:</p>
 
 <ul>
   <li><b>BB:</b> Bacabal phase, associated with early shell mounds in southwestern Amazon, and similar ceramics in the same region, such as Pimenteira and Jasiaquiri, which are associated with ditched enclosures (Miller 1983; <a href="https://www.researchgate.net/publication/306292334_A_Fase_Bacabal_e_suas_Implicacoes_para_a_Interpretacao_do_Registro_Arqueologico_no_Medio_Rio_Guapore_Rondonia">Zimpel and Pugliese 2012</a>; <a href="https://www.researchgate.net/publication/273886689_100_anos_de_investigaciones_arqueologicas_en_los_Llanos_de_Mojos">Prümers and Jaimes Betancourt 2014</a>).</li>
@@ -57,16 +53,11 @@ plot(xpand, add=TRUE, cex=0.5, col="red")</pre></code>
 ">Araujo 2007</a>; <a href="https://doi.org/10.1590/1981.81222017000100004">Noelli and Souza 2017</a>).</li>
 </ul>
 
-<p>The package comes with some in-built methods for simple visualization of the classified data. They allow one to do a first exploration of trends in the radiocarbon dates. To visualize the distribution of archaeological cultures, one can select all sites and the broad classification scheme, or a single taxonomic unit in order to show its cultural components.</p>
-
-<pre><code>data(xpandClass)
-plot(xpandClass)</pre></code>
-
-<img src="img/all.png" height=300></img>
-
-<pre><code>plot(xpandClass, "SB")  #Saladoid-Barrancoid subset</pre></code>
-
-<img src="img/sb.png" height=300></img>
+<pre><code>plt <- spplot(xpand, "Class", xlim=c(-82, -34), ylim=c(-56, 13),
+              col.regions=kelly(), sp.layout=list("sp.polygons",
+              sam, first=FALSE), par.settings=list(axis.line=list(col="transparent"))
+names(plt$legend) <- "right"
+plt</pre></code>
 
 <p>To explore spatial trends in the distribution of radiocarbon dates, there is the option of plotting an isochrone map - based on inverse distance weighting and considering only the earliest dates in a radius of 100 km.</p>
 <pre><code>plot(xpandClass, "SB", isochrones=TRUE)</pre></code>
