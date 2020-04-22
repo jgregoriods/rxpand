@@ -9,10 +9,8 @@ Authors@R:
            email = "jonas.gregorio@gmail.com",
            comment = c(ORCID = "0000-0001-6032-4443"))
 Description: Dataset of radiocarbon dates from project ExPaND, containing 2762
-    radiocarbon dates from 1023 archaeological sites. Besides the data, the
-    package comes with methods for visualization and preliminary analysis of the
-    spatial patterns in dates of different cultures, such as plotting isochrone
-    surfaces interpolated from the radiocarbon measurements.
+    radiocarbon dates from 1023 archaeological sites. Functions for plotting
+    isochrone surfaces interpolated from the radiocarbon measurements.
 Depends: R (>= 3.5.0), dplyr, gstat, pals, raster, rgdal, viridisLite
 License: GPL (>= 2)
 Encoding: UTF-8

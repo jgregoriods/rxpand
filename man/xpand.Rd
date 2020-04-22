@@ -3,10 +3,10 @@
 \docType{data}
 \name{xpand}
 \alias{xpand}
-\title{Radiocarbon dates and coordinates of 1035 archaeological sites in lowland
+\title{Radiocarbon dates and coordinates of 1023 archaeological sites in lowland
 South America associated with the spread of ceramics and tropical forest
 farming.}
-\format{A SpatialPointsDataFrame with 2794 features and 11 variables.
+\format{A SpatialPointsDataFrame with 2762 features and 11 variables.
 \itemize{
   \item Site. Site name.
   \item C14Age. Date in C14 years BP.
@@ -21,12 +21,14 @@ farming.}
   \item FullReference. Full bibliographic reference.
   \item Exclude. TRUE or FALSE based on general consensus or problems with
                  the C14 date.
+  \item Class. A simpler classification of the various archaeological
+               cultures into few classes. Experimental.
 }}
 \usage{
 xpand
 }
 \description{
-Radiocarbon dates and coordinates of 1035 archaeological sites in lowland
+Radiocarbon dates and coordinates of 1023 archaeological sites in lowland
 South America associated with the spread of ceramics and tropical forest
 farming.
 }

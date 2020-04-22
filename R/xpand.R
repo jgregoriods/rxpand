@@ -36,7 +36,6 @@ filterDates <- function(sites, c14bp, dist = 0) {
     return(sites.max.spdf)
 }
 
-
 #' Interpolate radiocarbon dates using inverse distance weighting.
 #' @param sites A SpatialPointsDataFrame object with archaeological sites and
 #' associated radiocarbon ages.
@@ -55,63 +54,24 @@ interpolateIDW <- function(sites, c14bp) {
     return(raster(sites.idw))
 }
 
-
-#' S3 method for plotting classified archaeological sites and dates of ExPaND
-#' project. It is possible to plot only the sites according to their cultural
-#' affiliation or an interpolated surface with the radiocarbon ages.
-#' @param sites An xpanDates object.
-#' @param culture A string. The archaeological culture to be plotted. One of
-#' "all", "BB" (Bacabal and related), "CC" (Cumancaya and related), "GM"
-#' (Goya-Malabrigo), "HZ" (Zone-Hachured), "IP" (Incised-Punctate and related),
-#' "NI" (Unclassified), "PC" (Pedra do Caboclo/Aratu), "PL" (Amazon Polychrome),
-#' "SB" (Saladoid-Barrancoid and related), "TP" (Tupiguarani), "TT"
-#' (Tutishcainyo and related) or "UN" (Una/Taquara/Itararé). Default is "all".
-#' @param isochrones A boolean indicating whether to plot an interpolated
-#' surface of radiocarbon ages. Default is FALSE.
+#' Plots an interpolated surface with the radiocarbon ages of archaeological
+#' sites.
+#' @param sites A SpatialPointsDataFrame object.
+#' @param c14bp A string. Name of the field with the radiocarbon ages in C14 BP
+#' format.
 #' @return An spplot.
 #' @export
-plot.xpanDates <- function(sites, culture = "all", isochrones = FALSE) {
-    sites <- sites[[1]][sites[[1]]$Exclude == FALSE,]
-
-    keys <- list(all = "All sites", BB = "Bacabal and related",
-                 CC = "Cumancaya and related", GM = "Goya-Malabrigo",
-                 HZ = "Zone-Hachured", IP = "Incised-Punctate and related",
-                 NI = "Other (Unclassified)", PC = "Pedra do Caboclo/Aratu",
-                 PL = "Amazon Polychrome",
-                 SB = "Saladoid-Barrancoid and related", TP = "Tupiguarani",
-                 TT = "Tutishcainyo and related", UN = "Una/Taquara/Itararé")
-
-    if (culture == "all") {
-        attr <- "Class"
-    } else {
-        sites <- sites[sites$Class == culture,]
-        # Get rid of parentheses with cultural subdivisions, keep only the
-        # broader classification.
-        sites$Culture <- gsub(" \\(.+", "", sites$Culture)
-        sites$Culture <- factor(sites$Culture)
-        attr <- "Culture"
-    }
-
-    if (isochrones == TRUE) {
-        sites <- filterDates(sites, "C14Age", 100)
-        sites.idw <- mask(interpolateIDW(sites, "C14Age"), sam)
-        borders <- list("sp.polygons", sam, first = FALSE)
-        plt <- spplot(sites.idw, xlim=c(-82, -34), ylim=c(-56, 13),
-                      col.regions = magma(24), sp.layout = borders,
-                      colorkey = list(width = 1, space = "bottom"),
-                      xlab = list("C14 BP", cex = 0.75),
-                      par.settings = list(axis.line = list(col = "transparent"),
-                                          layout.heights = list(xlab.key.padding = 1)),
-                      main = list(label = keys[culture], cex = 1))
-    } else {
-        borders <- list("sp.polygons", sam)
-        plt <- spplot(sites, attr, xlim = c(-82, -34), ylim = c(-56, 13),
-                      col.regions = kelly()[4:22], cex = 0.5, sp.layout = borders,
-                      par.settings = list(axis.line = list(col = "transparent")),
-                      main = list(label = keys[culture], cex = 1))
-        names(plt$legend) <- "right"
-    }
-
+isoPlot <- function(sites, c14bp, title="All sites") {
+    sites <- filterDates(sites, c14bp, 100)
+    sites.idw <- mask(interpolateIDW(sites, c14bp), sam)
+    borders <- list("sp.polygons", sam, first = FALSE)
+    plt <- spplot(sites.idw, xlim=c(-82, -34), ylim=c(-56, 13),
+                  col.regions = magma(24), sp.layout = borders,
+                  colorkey = list(width = 1, space = "bottom"),
+                  xlab = list("C14 BP", cex = 0.75),
+                  par.settings = list(axis.line = list(col = "transparent"),
+                                      layout.heights = list(xlab.key.padding = 1)),
+                  main = list(label = title, cex = 1))
     return(plt)
 }
 
@@ -139,5 +99,7 @@ plot.xpanDates <- function(sites, culture = "all", isochrones = FALSE) {
 #'   \item FullReference. Full bibliographic reference.
 #'   \item Exclude. TRUE or FALSE based on general consensus or problems with
 #'                  the C14 date.
+#'   \item Class. A simpler classification of the various archaeological
+#'                cultures into few classes. Experimental.
 #' }
 "xpand"
