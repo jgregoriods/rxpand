@@ -24,7 +24,7 @@
   <li><b>Class:</b> A simple and broad classification of the various archaeological cultures (see below).</li>
 </ul>
 
-<p>The data are made available in SpatialPoints* format to facilitate spatial analyses in R.</p>
+<p>The data are made available in SpatialPoints* format to facilitate spatial analyses in R. The original table can also be found in the file <i>xpand.csv</i> in the data folder.</p>
 <pre><code>load("data/xpand.RDa")
 load("data/sam.RDa") #South American country borders
 plot(sam)
