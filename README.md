@@ -1,4 +1,4 @@
-# xpandR
+# rxpand
 <h2>Radiocarbon dates for the spread of farming and ceramics in tropical South America</h2>
 
 <img src="img/ds.png" width=100 align="left"></img>
