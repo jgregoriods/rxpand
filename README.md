@@ -3,8 +3,7 @@
 
 <img src="img/ds.png" width=100 align="left"></img>
 
-**Jonas Gregorio de Souza**<br/>
-jonas.gregorio@gmail.com<br/>
+Jonas Gregorio de Souza<br/>
 [![ORCiD](https://img.shields.io/badge/ORCiD-0000--0001--7879--4531-green.svg)](https://orcid.org/0000-0001-6032-4443)<br/>
 
 <p>This package contains a dataset with 2762 radiocarbon dates from 1023 archaeological sites in lowland South America. In principle, only archaeological cultures related to the spread of polyculture agroforestry (tropical forest farming) and ceramics are represented. The dataset has been compiled and is continuously updated as part of the project <a href="https://amazonexpand.wixsite.com/expand">ExPaND: Examining Pan-Neotropical Diasporas</a> funded by the European Commission H2020.</p>
